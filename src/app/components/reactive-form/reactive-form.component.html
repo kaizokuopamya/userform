@@ -58,7 +58,7 @@
         id="state"
         class="form-control"
         placeholder="Enter state"
-        formContolName="state"
+        formControlName="state"
       />
     </div>
     <div class="col-4">
@@ -109,6 +109,7 @@
     <button
       type="submit"
       class="col-auto btn btn-outline-success bi bi-check-lg"
+      [disabled]="!userForm.valid"
     >
       Submit
     </button>

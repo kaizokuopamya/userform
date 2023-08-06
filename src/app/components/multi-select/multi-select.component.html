@@ -1,4 +1,4 @@
-<div>
+<div class="checkbox-hobbie-input pb-3">
   <input
     class="form-control"
     type="text"
@@ -6,15 +6,15 @@
     placeholder="Select Hobbies"
     (click)="showHobbies = !showHobbies"
   />
-  <div *ngIf="showHobbies" class="mx-2 d-flex justify-content-start">
+  <div class="hobbies d-flex shadow-sm py-2 px-1 rounded" *ngIf="showHobbies">
     <div class="hobby" *ngFor="let hobby of hobbies">
       <input
         type="checkbox"
-        value="hobby.label"
-        [checked]="hobby.selected"
+        value="hobby.name"
+        [checked]="hobby.checked"
         (click)="checkedHobbies(hobby)"
       />
-      <label class="mx-2" for="hobby">{{ hobby.label }}</label>
+      <label class="mx-2" for="hobby">{{ hobby.name }}</label>
     </div>
   </div>
 </div>

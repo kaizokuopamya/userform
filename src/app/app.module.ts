@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { UserTableComponent } from './components/user-table/user-table.component';
 import { ReactiveFormComponent } from './components/reactive-form/reactive-form.component';
 import { MultiSelectComponent } from './components/multi-select/multi-select.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,12 @@ import { MultiSelectComponent } from './components/multi-select/multi-select.com
     ReactiveFormComponent,
     MultiSelectComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

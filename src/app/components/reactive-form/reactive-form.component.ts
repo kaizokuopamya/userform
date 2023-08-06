@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import {
+  FormGroup,
+  FormControl,
+  FormBuilder,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-reactive-form',
@@ -7,17 +12,20 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./reactive-form.component.css'],
 })
 export class ReactiveFormComponent {
-  userForm = new FormGroup({
-    name: new FormControl(''),
-    gender: new FormControl(''),
-    email: new FormControl(''),
-    city: new FormControl(''),
-    state: new FormControl(''),
-    country: new FormControl(''),
-    hobbies: new FormControl(''),
-    address1: new FormControl(''),
-    address2: new FormControl(''),
+  userForm = this.fb.group({
+    name: [''],
+    gender: [''],
+    email: ['', Validators.email],
+    city: [''],
+    state: [''],
+    country: [''],
+    hobbies: [''],
+    address1: [''],
+    address2: [''],
   });
+
+  constructor(private fb: FormBuilder) {}
+
   onSubmit(): void {
     console.log(this.userForm.value);
   }

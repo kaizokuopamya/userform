@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { HOBBIES } from './Hobbies';
+import { Component, Input } from '@angular/core';
+import { HOBBIES } from './Hobbies.model';
 
 @Component({
   selector: 'app-multi-select',
@@ -16,7 +16,6 @@ export class MultiSelectComponent {
     this.hobbies = HOBBIES;
   }
 
-  checkedHobbies(hobby: any) {
-    
-  }
+  checkedHobbies(hobby: any) {}
+ 
 }
