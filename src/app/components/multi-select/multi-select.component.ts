@@ -8,14 +8,17 @@ import { HOBBIES } from './Hobbies.model';
 })
 export class MultiSelectComponent {
   showHobbies: boolean = false;
+  @Input() selectedHobbies: string = ' ';
   hobbies: any[] = [];
 
   constructor() {}
+
 
   ngOnInit() {
     this.hobbies = HOBBIES;
   }
 
-  checkedHobbies(hobby: any) {}
- 
+  checkedHobbies(hobby: any) {
+    
+  }
 }

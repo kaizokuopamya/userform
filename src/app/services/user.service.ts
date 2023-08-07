@@ -6,19 +6,16 @@ import { Observable, BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class UserService {
+  userData: BehaviorSubject<any> = new BehaviorSubject('');
   private dataUrl = 'assets/userInfo.json';
+
+  public Data(): Observable<any> {
+    return this.userData.asObservable();
+  }
 
   constructor(private http: HttpClient) {}
 
   getUserData(): Observable<any> {
     return this.http.get<any>(this.dataUrl);
-  }
-
-  saveUserDataToLocalStorage(data: any) {
-    localStorage.setItem('userData', JSON.stringify(data));
-  }
-
-  getUserDataFromLocalStorage() {
-    localStorage.getItem('userData');
   }
 }

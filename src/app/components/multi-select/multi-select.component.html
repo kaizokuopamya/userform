@@ -6,7 +6,7 @@
     placeholder="Select Hobbies"
     (click)="showHobbies = !showHobbies"
   />
-  <div class="hobbies d-flex shadow-sm py-2 px-1 rounded" *ngIf="showHobbies">
+  <div class="hobbies d-flex py-2 px-1 rounded" *ngIf="showHobbies">
     <div class="hobby" *ngFor="let hobby of hobbies">
       <input
         type="checkbox"

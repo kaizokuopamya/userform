@@ -12,18 +12,18 @@ declare var $: any;
 export class UserTableComponent {
   users: userData[] = [];
 
-  constructor(private router: Router, private userService: UserService) {}
-
-  ngOnInit(): void {
-    let userInfo: any = this.userService.getUserDataFromLocalStorage();
+  constructor(private router: Router, private userService: UserService) {
+    let userInfo: any = localStorage.getItem('userData');
     if (!userInfo) {
       this.userService.getUserData().subscribe((users) => {
-        this.userService.saveUserDataToLocalStorage(users.data);
         this.users = users.data;
+        localStorage.setItem('userData', JSON.stringify(users.data));
       });
     }
     this.users = JSON.parse(userInfo);
   }
+
+  ngOnInit(): void {}
 
   ngAfterViewInit(): void {
     $(function () {
@@ -31,7 +31,15 @@ export class UserTableComponent {
     });
   }
 
-  editUser(data: userData, id: number) {}
+  editUser(data: userData, id: number) {
+    let formData = {
+      data: data,
+      type: 'edit',
+    };
+    this.userService.userData.next(formData);
+    console.log(formData);
+    this.router.navigateByUrl('/form');
+  }
 
   viewUser(data: userData, id: number) {}
 
